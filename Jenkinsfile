@@ -21,7 +21,7 @@ pipeline {
 
         stage('Test API') {
             steps {
-                sh "newmann run mindicador.cl.postman_collection.json"
+                sh "newman run mindicador.cl.postman_collection.json"
             }
         }
     }
