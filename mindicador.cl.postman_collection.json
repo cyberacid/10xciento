@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "adb3b582-fb83-4903-b362-956ce326cf09",
+		"name": "mindicador.cl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Uf",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();",
+							"",
+							"pm.test(\"Status 200\",function() {",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"Tiempo < 500\",function() {",
+							"    pm.expect(pm.response.responseTime).is.lessThan(500)",
+							"});",
+							"",
+							"pm.test(\"Valor de objeto\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.codigo).to.eql('uf');",
+							"});",
+							"",
+							"pm.test(\"Tipo de dato\", () => {",
+							"    ",
+							"    pm.expect(responseJson.unidad_medida).to.be.a('string');",
+							"});",
+							"",
+							"pm.test(\"Largo de objeto\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.codigo).to.have.lengthOf(2);",
+							"});",
+							"",
+							"pm.test(\"Content-Type header\", () => {",
+							"  pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type application/json\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.contain('application/json');",
+							"});",
+							"",
+							"pm.test(\"Cuerpo texto\",() => {",
+							"  pm.expect(pm.response.text()).to.include(\"valor\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Tipo de dato objeto\", () => {",
+							"  pm.expect(responseJson.serie).to.be.an(\"array\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Objetos presentes\", () => {",
+							"  const expectedObject = {",
+							"    \"autor\": \"mindicador.cl\",",
+							"    \"unidad_medida\": \"Pesos\"",
+							"  };",
+							"  pm.expect(pm.response.json()).to.deep.include(expectedObject);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_endpoint}}/uf",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"uf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ipc",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();",
+							"",
+							"pm.test(\"Status 200\",function() {",
+							"    pm.response.to.have.status(200)",
+							"});",
+							"",
+							"pm.test(\"Tiempo < 500\",function() {",
+							"    pm.expect(pm.response.responseTime).is.lessThan(500)",
+							"});",
+							"",
+							"pm.test(\"Valor de objeto\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.codigo).to.eql('ipc');",
+							"});",
+							"",
+							"pm.test(\"Tipo de dato\", () => {",
+							"    ",
+							"    pm.expect(responseJson.unidad_medida).to.be.a('string');",
+							"});",
+							"",
+							"pm.test(\"Largo de objeto\", () => {",
+							"    const responseJson = pm.response.json();",
+							"    pm.expect(responseJson.codigo).to.have.lengthOf(3);",
+							"});",
+							"",
+							"pm.test(\"Content-Type header\", () => {",
+							"  pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Content-Type application/json\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.contain('application/json');",
+							"});",
+							"",
+							"pm.test(\"Cuerpo texto\",() => {",
+							"  pm.expect(pm.response.text()).to.include(\"valor\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Tipo de dato objeto\", () => {",
+							"  pm.expect(responseJson.serie).to.be.an(\"array\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Objetos presentes\", () => {",
+							"  const expectedObject = {",
+							"    \"autor\": \"mindicador.cl\",",
+							"    \"unidad_medida\": \"Porcentaje\"",
+							"  };",
+							"  pm.expect(pm.response.json()).to.deep.include(expectedObject);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_endpoint}}/ipc",
+					"host": [
+						"{{api_endpoint}}"
+					],
+					"path": [
+						"ipc"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_endpoint",
+			"value": "https://mindicador.cl/api",
+			"type": "string"
+		}
+	]
+}

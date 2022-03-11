@@ -13,3 +13,5 @@ buildNumber.properties
 
 #Exclude .devcontainer
 .devcontainer
+node_modules
+package-lock.json
